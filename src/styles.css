@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  color-scheme: black;
+  scroll-behavior: smooth;
 }
 
 .App {
@@ -16,3 +23,52 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.geocoder-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+
+}
+
+.geoapify-autocomplete-input{
+  outline: none;
+  border: 2px solid rgba(0,0,0,0.3);
+  padding: 3px 5px;
+  border-radius: 8px;
+  box-shadow: black 1.3px 3px 2px;
+}
+
+.geoapify-autocomplete-item{
+  display: flex;
+  gap: 10px;
+  margin: 4px;
+  margin-bottom: 7px;
+  margin-top: 4px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.geoapify-autocomplete-item:hover{
+ transform: scale(1.1);
+ transition: all 0.3s ease-in-out;
+ 
+}
+
+.geoapify-close-button{
+  padding: 2px;
+  margin-top: -29px;
+  margin-left: 250px;
+  border-radius: 4px;
+  cursor:pointer;
+
+}
+
+.geoapify-close-button:hover{
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+  
+}
+

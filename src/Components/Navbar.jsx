@@ -1,7 +1,7 @@
-import { Component, useState } from "react";
+import { useState } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import { MenuItems } from "../Components/MenuItems.js";
+import { MenuItems } from "../Components/MenuItems.jsx";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
 
@@ -12,24 +12,36 @@ function Navbar() {
     setmenuicon(!menuicon);
   }
 
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+
   return (
     <div>
       <nav className="nav-items">
-        <h1 className="nav-logo">Trippy</h1>
+        <NavLink to="/">
+          <h1 className="nav-logo font-bold">Tour & Guide</h1>{" "}
+        </NavLink>
         <div className="menu-icon" onClick={menuChangeHandler}>
           {menuicon ? <RxCross1 /> : <GiHamburgerMenu />}
         </div>
-        <ul className=" nav-menu  ">
-          {MenuItems.map(function (item, index) {
-            return (
-              <li>
-                <NavLink className="links" to={item.url}>
+        <ul className={menuicon ? "nav-menu active" : "nav-menu "}>
+          {MenuItems.map((item, index) => (
+            <li key={index}>
+              <NavLink className="links" to={item.url}>
+                <span
+                  onClick={topFunction}
+                  className="flex items-center justify-center gap-2 mx-auto"
+                >
                   {item.icon} {item.title}
-                </NavLink>
-              </li>
-            );
-          })}
-          <button>Sign Up</button>
+                </span>
+              </NavLink>
+            </li>
+          ))}
+          <NavLink to="/SignUp">
+            <button>Sign Up</button>
+          </NavLink>
         </ul>
       </nav>
     </div>
