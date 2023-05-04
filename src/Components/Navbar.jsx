@@ -40,7 +40,7 @@ function Navbar() {
             </li>
           ))}
           <NavLink to="/SignUp">
-            <button>Sign Up</button>
+            <button onClick={topFunction}>Sign Up</button>
           </NavLink>
         </ul>
       </nav>

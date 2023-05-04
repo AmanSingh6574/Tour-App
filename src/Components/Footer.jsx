@@ -12,7 +12,7 @@ function Footer() {
         </div>
         <div className="flex gap-3">
           <div className="cursor-pointer">
-            <BsInstagram size={25} />
+             <a href=""><BsInstagram size={25} /></a>
           </div>
           <div className="cursor-pointer">
             <BsFacebook size={25} />
