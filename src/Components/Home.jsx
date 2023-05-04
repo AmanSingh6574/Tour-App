@@ -1,39 +1,14 @@
-import { useEffect, useState } from "react";
-import ApiSearch from "./ApiSearch";
+
+
 
 import Footer from "./Footer";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
-import Placemenu from "./Placemenu";
 
-// const API_KEY = process.env.API_KEY;
+
 
 function Home() {
-  const [place, setplace] = useState("");
-  const [data, setdata] = useState("");
-  const [loading, setloading] = useState(false);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setloading(true);
-        const finsla = await fetch(
-          `https://api.geoapify.com/v2/places?categories=natural&filter=place:${place}&limit=20&apiKey=9db3b697d562439b85a1fb2f86d0cf31`
-        );
-        const finaldata = await finsla.json();
-        setdata(finaldata);
-        setloading(false);
-        // console.log(finaldata?.features?.[0]?.properties?.name);
-      } catch (error) {
-        console.log("error");
-      }
-    }
-    fetchData();
-  }, [place]);
-
-  function getid(placeid) {
-    setplace(placeid);
-  }
 
   return (
     <div>
@@ -47,9 +22,7 @@ function Home() {
         src="https://images.unsplash.com/photo-1562428247-1898424e2327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
       />
 
-      <ApiSearch getid={getid} loading={loading} />
-
-      <Placemenu data={data} loading={loading} />
+     
 
       <div className="w-full mx-auto text-center mt-10 mb-10">
         <h1 className="font-bold text-3xl tracking-wide mb-2">
